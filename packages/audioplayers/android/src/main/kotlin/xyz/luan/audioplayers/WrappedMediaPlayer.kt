@@ -277,7 +277,7 @@ class WrappedMediaPlayer internal constructor(
     // the player is ready.
     override fun seek(position: Int) {
         if (prepared) {
-            player?.seekTo(position)
+            player?.seekTo(position.toLong(), MediaPlayer.SEEK_CLOSEST)
         } else {
             shouldSeekTo = position
         }

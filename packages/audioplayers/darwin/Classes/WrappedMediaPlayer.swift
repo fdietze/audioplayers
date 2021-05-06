@@ -122,7 +122,7 @@ class WrappedMediaPlayer {
             return
         }
         // TODO(luan) currently when you seek, the play auto-unpuses. this should set a seekTo property, similar to what WrappedMediaPlayer
-        currentItem.seek(to: time) {
+        currentItem.seek(to: time, toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero) {
             finished in
             if finished {
                 self.reference.updateNotifications(player: self, time: time)
